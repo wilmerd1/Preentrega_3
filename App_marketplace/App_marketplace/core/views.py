@@ -1,10 +1,7 @@
-from typing import Any
-from django.http import HttpResponse
 from django.shortcuts import render
-
+from Ecommerce.models import Categoriaproducto
 # Create your views here.
-from . import models
-
 def home(request):
-    return render(request, 'core/index.html')
-
+    categoria = Categoriaproducto.objects.all()
+    contexto= {'categorias': categoria}
+    return render(request, 'core/index.html', contexto)

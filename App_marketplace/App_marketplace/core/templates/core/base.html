@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     {% block tittle %}
-        <title>Administración Marketplace</title>
+    <title>Administración Marketplace</title>
     {% endblock tittle %}
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
@@ -37,11 +37,13 @@
 
         <!-- Content Start -->
         <div class="content">
-            
 
-            {% include 'core/components/buscar.html' %}
-            {% block contenido %}
-            {% endblock contenido %}
+            <div class="m-4">
+                {% block contenido %}
+                {% endblock contenido %}
+            </div>
+
+
             {% include 'core/components/footer.html' %}
 
         </div>

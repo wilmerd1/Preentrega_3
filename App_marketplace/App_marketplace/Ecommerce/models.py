@@ -18,7 +18,7 @@ class Cliente(models.Model):
         verbose_name_plural = "clientes"
 
     def __str__(self) -> str:
-        return self.name
+        return self.name + " | " + self.apellido + " | " + self.email + " | " + self.direccion
     
 
 class Categoriaproducto(models.Model):
@@ -32,7 +32,7 @@ class Categoriaproducto(models.Model):
         verbose_name_plural = "categorias"
 
     def __str__(self):
-        return self.name
+        return self.name + " | " + self.tipo
 
     def get_absolute_url(self):
         return reverse("categoria_detail", kwargs={"pk": self.pk})
