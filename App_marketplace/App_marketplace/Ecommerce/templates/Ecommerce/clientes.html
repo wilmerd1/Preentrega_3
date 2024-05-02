@@ -1,0 +1,86 @@
+{% extends 'core/base.html' %}
+
+{% block contenido %}
+
+
+<div class="col-sm-12 col-xl-10 mt-5">
+    <form method="post" action="">
+        {% csrf_token %}
+        <div class="bg-light rounded h-100 p-4">
+            <h6 class="mb-4">Crear Cliente</h6>
+            <div class="mb-3">
+                <label class="form-label">Nombre:</label>
+                {{ form.name}}
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Apellido:</label>
+                {{ form.apellido}}
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Email:</label>
+                {{ form.email}}
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Dirección Envios:</label>
+                {{ form.direccion}}
+            </div>
+
+            <button type="submit" class="btn btn-primary">Guardar</button>
+
+        </div>
+
+    </form>
+</div>
+
+
+<div class="col-sm-12 col-xl-10 mt-5">
+    <div class="bg-light rounded h-100 p-4">
+
+        <div class="row">
+            <div class="col-sm-10 col-md-6 pt-4">
+                <h6 class="mb-4">Listado de Categorias</h6>
+
+            </div>
+            <div class="col-sm-10 col-md-6">
+                <form method="get">
+
+                    <input type="text" name="consulta" class="form-control form-control-sm" placeholder="Buscar.."
+                        aria-controls="key-datatable">
+                    <button type="submit" class="btn btn-primary">Buscar</button>
+
+
+                </form>
+
+
+            </div>
+
+        </div>
+
+        <div class="mt-2">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Tipo Categoria</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for client in clientes %}
+                    <tr>
+                        <td>{{ client.cliente_id }}</td>
+                        <td>{{ client.name }}</td>
+                        <td>{{ client.apellido }}</td>
+                        <td>{{ client.email }}</td>
+                        <td>{{ client.direccion }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+
+</div>
+
+{% endblock contenido %}
